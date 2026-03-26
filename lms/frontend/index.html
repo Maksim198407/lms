@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Система управления обучением</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="sidebar hidden">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon"><span class="material-icons-round">school</span></div>
+                    <span class="logo-text">LMS</span>
+                </div>
+                <button id="sidebar-toggle-close" class="sidebar-toggle-btn" onclick="toggleSidebar()">
+                    <span class="material-icons-round">menu_open</span>
+                </button>
+            </div>
+            <nav id="nav-links" class="sidebar-nav"></nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user" id="sidebar-user-info">
+                    <div class="sidebar-user-avatar" id="user-avatar">А</div>
+                    <div class="sidebar-user-details">
+                        <div class="sidebar-user-name" id="nav-user"></div>
+                        <div class="sidebar-user-role" id="nav-role"></div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()" title="Выход">
+                    <span class="material-icons-round">logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Area -->
+        <div id="main-wrapper" class="main-wrapper">
+            <!-- Topbar -->
+            <header id="topbar" class="topbar hidden">
+                <button id="sidebar-toggle-open" class="topbar-menu-btn" onclick="toggleSidebar()">
+                    <span class="material-icons-round">menu</span>
+                </button>
+                <div class="topbar-title" id="topbar-title">Панель управления</div>
+                <div class="topbar-actions">
+                    <button class="topbar-notif" id="nav-notifications" onclick="loadAndShowNotifications()" title="Уведомления">
+                        <span class="material-icons-round">notifications</span>
+                        <span class="notif-badge hidden" id="notif-count">0</span>
+                    </button>
+                </div>
+            </header>
+            <main id="main-content" class="main-content"></main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/student.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
